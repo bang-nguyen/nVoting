@@ -36,13 +36,14 @@
 </head>
 
 <body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse navbar-custom"></header>
   <section class="content">
     <section class="container">
       {% block content %}{% endblock %}
     </section>
   </section>
-
+  <footer ng-include="'/modules/core/client/views/footer.client.view.html'" class="footer-wrapper"></footer>
+  
   <!--Embedding The User Object-->
   <script type="text/javascript">
     var user = {{ user | json | safe }};

@@ -35,3 +35,63 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+.nVoting-left-sidebar{
+
+}
+.nVoting-right-panel{
+  border-left: 2px #c1c1c1 solid;
+  margin-top: 20px;
+}
+.nVoting-calendar-box{
+  width: 140px;
+  height: 140px;
+  border: 3px #c1c1c1 solid;
+}
+
+.nVoting-calendar-box-header{
+  height: 30px;
+  border-bottom: 3px #c1c1c1 solid;
+  color: #FFF;
+  background: #333;
+  padding-top: 3px;
+}
+.nVoting-calendar-box-date{
+  font-size: 70px;
+}
+.nVoting-calendar-success .nVoting-calendar-box-header{
+  background:#009e0f;
+}
+.nVoting-calendar-outdate .nVoting-calendar-box-outdate{
+  background:#990000;
+}
+.nVoting-answer li{
+  list-style: none;
+}
+.navbar-custom {
+  background-image: none;
+  background-color: white;
+}
+
+.navbar-custom a {
+  color: black !important;
+  text-shadow: none !important;
+}
+
+.navbar-custom .navbar-header a {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.navbar-custom a:hover {
+  color: dodgerblue !important;
+}
+
+.navbar-custom .navbar-nav > .open > a {
+  background-color: #DEDEDE;
+  background-image: none;
+  box-shadow: none;
+}
+
+.navbar-custom .navbar-nav > .open > a:hover {
+  background-color: #DEDEDE;
+}
