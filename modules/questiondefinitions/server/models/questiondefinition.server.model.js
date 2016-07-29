@@ -28,6 +28,12 @@ var QuestiondefinitionSchema = new Schema({
   required:{
     type: Boolean
   },
+  type: {
+    type: String,
+    default: '',
+    required: 'Please choose a type for question',
+    trim: true
+  },
   created: {
     type: Date,
     default: Date.now

@@ -18,7 +18,12 @@
         </div>
         <div class="form-group" show-errors>
           <label class="control-label" for="Required">Required</label>
-          <input name="required" type="checkbox" ng-model="vm.questiondefinition.required" id="Required" class="form-control" >          
+          <input name="required" type="checkbox" ng-model="vm.questiondefinition.required" id="Required" />          
+        </div>
+        <div class="form-group" >
+          <label class="control-label" for="Type">Type</label>          
+          <select name="type" id="Type" ng-options="item as item for item in vm.types track by item" ng-model="vm.questiondefinition.type"></select>                
+          <input type="hidden" ng-model="vm.questiondefinition.type" name="type">
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.questiondefinition._id ? 'Update' : 'Create'}}</button>
