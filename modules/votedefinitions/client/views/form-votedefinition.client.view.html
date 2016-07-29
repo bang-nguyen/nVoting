@@ -13,18 +13,26 @@
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label class="control-label" for="Description">Description</label>
-          <textarea name="description" ng-model="vm.votedefinition.description" id="Description" class="form-control" cols="30" rows="10" placeholder="Description"></textarea>
+          <label class="control-label" for="Description">Status</label>
+          <select id="pref-perpage" class="form-control" data-ng-model="vm.votedefinition.status">
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>   
+        </select>
         </div>
         <div class="form-group" show-errors>
-          <label class="control-label" for="DeadLine">Dead Line</label>          
+          <label class="control-label" for="Description">Description</label>
+          <textarea name="description" ng-model="vm.votedefinition.description" id="Description" class="form-control" cols="30" rows="10"
+            placeholder="Description"></textarea>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="DeadLine">Dead Line</label>
           <div>
             <span data-ng-model="vm.votedefinition.deadline">{{vm.votedefinition.deadline}}</span>
           </div>
           <div class="well ng-binding">
             <datetimepicker data-datetimepicker-config="{ startView:'day', minView:'day' }" name="deadline" data-ng-model="vm.votedefinition.deadline"></datetimepicker>
-          </div>                    
-        </div>    
+          </div>
+        </div>
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.votedefinition._id ? 'Update' : 'Create'}}</button>
         </div>

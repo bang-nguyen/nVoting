@@ -82,7 +82,7 @@ exports.delete = function(req, res) {
  * List of Votedefinitions
  */
 exports.list = function(req, res) { 
-  Votedefinition.find().sort('-created').populate('user', 'displayName').exec(function(err, votedefinitions) {
+  Votedefinition.find().sort('-deadline').populate('user', 'displayName').exec(function(err, votedefinitions) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
