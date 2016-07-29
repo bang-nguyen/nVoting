@@ -8,7 +8,7 @@
 
 module.exports = {
   db: {
-    uri: 'mongodb://10.11.7.136/local-dev',
+    uri: 'mongodb://10.11.7.136:27017/nvoting-dev',
     // options: {
     //   user: '',
     //   pass: ''
