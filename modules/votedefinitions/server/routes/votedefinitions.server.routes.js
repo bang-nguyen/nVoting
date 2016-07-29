@@ -6,7 +6,7 @@
 var votedefinitionsPolicy = require('../policies/votedefinitions.server.policy'),
   votedefinitions = require('../controllers/votedefinitions.server.controller');
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Votedefinitions Routes
   app.route('/api/votedefinitions').all(votedefinitionsPolicy.isAllowed)
     .get(votedefinitions.list)
@@ -16,6 +16,9 @@ module.exports = function(app) {
     .get(votedefinitions.read)
     .put(votedefinitions.update)
     .delete(votedefinitions.delete);
+
+  app.route('/api/getVoteDefinitionsByVoteId/:hello')
+  .get(votedefinitions.getVoteDefinitionsByVoteId);
 
   // Finish by binding the Votedefinition middleware
   app.param('votedefinitionId', votedefinitions.votedefinitionByID);
