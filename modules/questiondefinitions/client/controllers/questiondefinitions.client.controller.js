@@ -6,9 +6,9 @@
     .module('questiondefinitions')
     .controller('QuestiondefinitionsController', QuestiondefinitionsController);
 
-  QuestiondefinitionsController.$inject = ['$scope', '$state', 'Authentication', 'questiondefinitionResolve'];
+  QuestiondefinitionsController.$inject = ['$scope', '$state', 'Authentication', 'questiondefinitionResolve', 'VotedefinitionsService'];
 
-  function QuestiondefinitionsController ($scope, $state, Authentication, questiondefinition) {
+  function QuestiondefinitionsController ($scope, $state, Authentication, questiondefinition, votedefinitionsService) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -18,6 +18,7 @@
     vm.remove = remove;
     vm.save = save;
     vm.types = ['Single', 'Multiple'];
+    vm.votes = votedefinitionsService.query();
     // Remove existing Questiondefinition
     function remove() {
       if (confirm('Are you sure you want to delete?')) {

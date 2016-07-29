@@ -25,6 +25,11 @@
           <select name="type" id="Type" ng-options="item as item for item in vm.types track by item" ng-model="vm.questiondefinition.type"></select>                
           <input type="hidden" ng-model="vm.questiondefinition.type" name="type">
         </div>
+        <div class="form-group" >
+          <label class="control-label" for="Vote">In Vote</label>          
+          <select name="type" id="Vote" ng-options="item._id as item.title for item in vm.votes" ng-model="vm.questiondefinition.vote"></select>                
+          <input type="hidden" ng-model="vm.questiondefinition.type" name="type">
+        </div>
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.questiondefinition._id ? 'Update' : 'Create'}}</button>
         </div>
