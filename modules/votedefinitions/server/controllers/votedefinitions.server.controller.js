@@ -120,4 +120,4 @@ exports.votedefinitionByID = function (req, res, next, id) {
 exports.getVoteDefinitionsByVoteId = function (req, res, next) {
   res.json({ "xxx": "yyy" });
   console.log("XXXX");
-}
+};
