@@ -1,5 +1,5 @@
 <br />
-<section ng-controller="HomeController">
+<section ng-controller="HomeController"  ng-init="find()">
   <div class="row">
     <div class="col-md-3 nVoting-left-sidebar">
       <div class="text-center">
@@ -10,74 +10,28 @@
       <h5 class="text-center">Finish 1 of 4 votes</h5>
     </div>
     <div class="col-md-9 nVoting-right-panel">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="nVoting-calendar-box">
-            <div class="nVoting-calendar-box-header text-center">
-              August
-            </div>
-            <div class="nVoting-calendar-box-date text-center">
-              3
+      <div ng-repeat="votedefinition in votedefinitions">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="nVoting-calendar-box">
+              <div class="nVoting-calendar-box-header text-center" ng-bind="votedefinition.created | date:'MMMM'">
+              </div>
+              <div class="nVoting-calendar-box-date text-center" ng-bind="votedefinition.created | date:'dd'">
+              </div>
             </div>
           </div>
+          <div class="col-md-9">
+            <a href="/detail"><h3 ng-bind="votedefinition.title"></h3></a>
+            <div class="row">
+              <div class="col-md-4"><span class="glyphicon glyphicon-user"></span> <span ng-bind="votedefinition.user.displayName"></span></div>
+              <div class="col-md-8"><span class="glyphicon glyphicon-time"></span> <span ng-bind="votedefinition.created | date:'MMMM dd ,yyyy'"></span></div>
+            </div>
+            <p ng-bind="votedefinition.description"></p>
+          </div>        
+          <div class="clearfix"></div>
         </div>
-        <div class="col-md-9">
-          <a href="/detail"><h3>Test title Test title Test title Test title Test title Test title </h3></a>
-          <div class="row">
-            <div class="col-md-4"><span class="glyphicon glyphicon-user"></span> Thang le</div>
-            <div class="col-md-8"><span class="glyphicon glyphicon-time"></span> November 19, 2016</div>
-          </div>
-          <p>Description content Description content Description content Description content Description contentDescription content</p>
-        </div>        
-        <div class="clearfix"></div>
-      </div>
-      <br />
-
-      <div class="row">
-        <div class="col-md-3">
-          <div class="nVoting-calendar-box nVoting-calendar-success">
-            <div class="nVoting-calendar-box-header text-center">
-              August
-            </div>
-            <div class="nVoting-calendar-box-date text-center">
-              3
-            </div>
-          </div>
-        </div>
-        <div class="col-md-9">
-          <a href="/detail"><h3>Test title Test title Test title Test title Test title Test title </h3></a>
-          <div class="row">
-            <div class="col-md-4"><span class="glyphicon glyphicon-user"></span> Thang le</div>
-            <div class="col-md-8"><span class="glyphicon glyphicon-time"></span> November 19, 2016</div>
-          </div>
-          <p>Description content Description content Description content Description content Description contentDescription content</p>
-        </div>        
-        <div class="clearfix"></div>
-      </div>
-      <br />
-
-      <div class="row">
-        <div class="col-md-3">
-          <div class="nVoting-calendar-box nVoting-calendar-outdate">
-            <div class="nVoting-calendar-box-header text-center">
-              August
-            </div>
-            <div class="nVoting-calendar-box-date text-center">
-              3
-            </div>
-          </div>
-        </div>
-        <div class="col-md-9">
-          <a href="/detail"><h3>Test title Test title Test title Test title Test title Test title </h3></a>
-          <div class="row">
-            <div class="col-md-4"><span class="glyphicon glyphicon-user"></span> Thang le</div>
-            <div class="col-md-8"><span class="glyphicon glyphicon-time"></span> November 19, 2016</div>
-          </div>
-          <p>Description content Description content Description content Description content Description contentDescription content</p>
-        </div>        
-        <div class="clearfix"></div>
-      </div>
-      <br />
+        <br />
+      <div>
 
       <div class="text-center">
         <ul class="pagination">
