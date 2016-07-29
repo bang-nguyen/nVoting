@@ -21,6 +21,9 @@ var VotedefinitionSchema = new Schema({
     default: '',    
     trim: true
   },
+  deadline: {
+    type: Date    
+  },
   created: {
     type: Date,
     default: Date.now
