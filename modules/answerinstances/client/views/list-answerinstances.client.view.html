@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Answerinstances</h1>
+  </div>
+  <div class="list-group">
+    <a data-ng-repeat="answerinstance in vm.answerinstances"
+       data-ui-sref="answerinstances.view({ answerinstanceId: answerinstance._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span data-ng-bind="answerinstance.created | date:'mediumDate'"></span>
+        by
+        <span data-ng-if="answerinstance.user" data-ng-bind="answerinstance.user.displayName"></span>
+        <span data-ng-if="!answerinstance.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" data-ng-bind="answerinstance.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" data-ng-if="vm.answerinstances.$resolved && !vm.answerinstances.length">
+    No Answerinstances yet, why don't you <a data-ui-sref="answerinstances.create">create one</a>?
+  </div>
+</section>
