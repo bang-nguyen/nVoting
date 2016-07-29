@@ -15,7 +15,7 @@ var path = require('path'),
 exports.create = function(req, res) {
   var votedefinition = new Votedefinition(req.body);
   votedefinition.user = req.user;
-
+  votedefinition.description = req.description;
   votedefinition.save(function(err) {
     if (err) {
       return res.status(400).send({
@@ -48,7 +48,7 @@ exports.update = function(req, res) {
   var votedefinition = req.votedefinition ;
 
   votedefinition = _.extend(votedefinition , req.body);
-
+  votedefinition.lastModifiedBy = req.user;
   votedefinition.save(function(err) {
     if (err) {
       return res.status(400).send({

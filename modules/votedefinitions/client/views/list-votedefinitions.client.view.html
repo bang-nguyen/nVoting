@@ -13,7 +13,7 @@
         <span data-ng-if="votedefinition.user" data-ng-bind="votedefinition.user.displayName"></span>
         <span data-ng-if="!votedefinition.user">Deleted User</span>
       </small>
-      <h4 class="list-group-item-heading" data-ng-bind="votedefinition.name"></h4>
+      <h4 class="list-group-item-heading" data-ng-bind="votedefinition.title"></h4>
     </a>
   </div>
   <div class="alert alert-warning text-center" data-ng-if="vm.votedefinitions.$resolved && !vm.votedefinitions.length">
