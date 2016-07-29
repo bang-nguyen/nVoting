@@ -35,3 +35,32 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+.navbar-custom {
+  background-image: none;
+  background-color: white;
+}
+
+.navbar-custom a {
+  color: black !important;
+  text-shadow: none !important;
+}
+
+.navbar-custom .navbar-header a {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.navbar-custom a:hover {
+  color: dodgerblue !important;
+}
+
+.navbar-custom .navbar-nav > .open > a {
+  background-color: #DEDEDE;
+  background-image: none;
+  box-shadow: none;
+}
+
+.navbar-custom .navbar-nav > .open > a:hover {
+  background-color: #DEDEDE;
+}
