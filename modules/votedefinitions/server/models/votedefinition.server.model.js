@@ -24,6 +24,11 @@ var VotedefinitionSchema = new Schema({
   deadline: {
     type: Date    
   },
+  status: {
+    type: String,
+    default: 'draft',    
+    trim: true
+  },
   created: {
     type: Date,
     default: Date.now

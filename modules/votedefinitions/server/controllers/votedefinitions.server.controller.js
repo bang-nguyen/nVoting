@@ -12,11 +12,11 @@ var path = require('path'),
 /**
  * Create a Votedefinition
  */
-exports.create = function(req, res) {
+exports.create = function (req, res) {
   var votedefinition = new Votedefinition(req.body);
   votedefinition.user = req.user;
   votedefinition.description = req.description;
-  votedefinition.save(function(err) {
+  votedefinition.save(function (err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -30,7 +30,7 @@ exports.create = function(req, res) {
 /**
  * Show the current Votedefinition
  */
-exports.read = function(req, res) {
+exports.read = function (req, res) {
   // convert mongoose document to JSON
   var votedefinition = req.votedefinition ? req.votedefinition.toJSON() : {};
 
@@ -44,13 +44,13 @@ exports.read = function(req, res) {
 /**
  * Update a Votedefinition
  */
-exports.update = function(req, res) {
-  var votedefinition = req.votedefinition ;
+exports.update = function (req, res) {
+  var votedefinition = req.votedefinition;
 
-  votedefinition = _.extend(votedefinition , req.body);
+  votedefinition = _.extend(votedefinition, req.body);
   votedefinition.lastModifiedBy = req.user;
   votedefinition.lastModified = new Date();
-  votedefinition.save(function(err) {
+  votedefinition.save(function (err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -64,10 +64,10 @@ exports.update = function(req, res) {
 /**
  * Delete an Votedefinition
  */
-exports.delete = function(req, res) {
-  var votedefinition = req.votedefinition ;
+exports.delete = function (req, res) {
+  var votedefinition = req.votedefinition;
 
-  votedefinition.remove(function(err) {
+  votedefinition.remove(function (err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -96,7 +96,7 @@ exports.list = function(req, res) {
 /**
  * Votedefinition middleware
  */
-exports.votedefinitionByID = function(req, res, next, id) {
+exports.votedefinitionByID = function (req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
@@ -115,4 +115,9 @@ exports.votedefinitionByID = function(req, res, next, id) {
     req.votedefinition = votedefinition;
     next();
   });
+};
+
+exports.getVoteDefinitionsByVoteId = function (req, res, next) {
+  res.json({ "xxx": "yyy" });
+  console.log("XXXX");
 };

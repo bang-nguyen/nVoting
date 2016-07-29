@@ -2,21 +2,65 @@
   <div class="page-header">
     <h1>Votedefinitions</h1>
   </div>
+
+  <form class="form-inline" role="form">
+    <div class="form-group">
+      <label class="filter-col" style="margin-right:0;" for="pref-perpage">Status:</label>
+      <select id="pref-perpage" class="form-control" data-ng-model="vm.searchStatus">
+            <option selected="selected" value="">All</option>
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>   
+        </select>
+    </div>
+    <!-- form group [status] -->
+    <div class="form-group">
+      <label class="filter-col" style="margin-right:0;" for="pref-search">Search:</label>
+      <input type="text" class="form-control input-sm" id="pref-search" data-ng-model="vm.searchText">
+    </div>
+    <!-- form group [search] -->
+    <div class="form-group pull-right">
+      <button type="button" class="btn btn-primary btn-sm" data-ui-sref="votedefinitions.create">Create</button>
+    </div>
+    <!-- form group [add] -->
+  </form>
+
   <div class="list-group">
-    <a data-ng-repeat="votedefinition in vm.votedefinitions"
-       data-ui-sref="votedefinitions.view({ votedefinitionId: votedefinition._id })"
-       class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span data-ng-bind="votedefinition.created | date:'mediumDate'"></span>
-        by
-        <span data-ng-if="votedefinition.user" data-ng-bind="votedefinition.user.displayName"></span>
-        <span data-ng-if="!votedefinition.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" data-ng-bind="votedefinition.title"></h4>
-    </a>
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <tr>
+          <th data-ng-class="{reverse: vm.reverse, sortorder: vm.propertyName === 'title'}" data-ng-click="vm.sortBy('title')">Title
+          </th>
+          <th data-ng-class="{reverse: vm.reverse, sortorder: vm.propertyName === 'deadline'}" data-ng-click="vm.sortBy('deadline')">Deadline
+          </th>
+          <th data-ng-class="{reverse: vm.reverse, sortorder: vm.propertyName === 'status'}" data-ng-click="vm.sortBy('status')">Status
+          </th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="votedefinition in vm.votedefinitions | orderBy:vm.propertyName:vm.reverse | filter:vm.searchText | filter:vm.searchStatus">
+          <td data-ng-bind="votedefinition.title">
+          </td>
+          <td data-ng-bind="votedefinition.deadline | date:'mediumDate'">
+          </td>
+          </td>
+          <td data-ng-bind="votedefinition.status">
+          </td>
+          <td>
+            <a data-ui-sref="votedefinitions.view({ votedefinitionId: votedefinition._id })">View</a> | 
+            <a data-ng-if="votedefinition.status=='draft'" data-ui-sref="votedefinitions.edit({ votedefinitionId: votedefinition._id })">Edit</a>
+            <a data-ng-if="votedefinition.status=='published'" data-ui-sref="votedefinitions.result({ votedefinitionId: votedefinition._id })">Result</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="alert alert-warning text-center" data-ng-if="vm.votedefinitions.$resolved && !vm.votedefinitions.length">
-    No Votedefinitions yet, why don't you <a data-ui-sref="votedefinitions.create">create one</a>?
-  </div>
+
+  <form class="form-inline" role="form">
+    <!-- form group [search] -->
+    <div class="form-group pull-right">
+      <button type="button" class="btn btn-primary btn-sm" data-ui-sref="votedefinitions.create">Create</button>
+    </div>
+    <!-- form group [add] -->
+  </form>
 </section>

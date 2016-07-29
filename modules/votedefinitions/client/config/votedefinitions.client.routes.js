@@ -60,6 +60,18 @@
         data:{
           pageTitle: 'Votedefinition {{ articleResolve.name }}'
         }
+      })
+      .state('votedefinitions.result', {
+        url: '/:votedefinitionId',
+        templateUrl: 'modules/votedefinitions/client/views/result-votedefinition.client.view.html',
+        controller: 'VotedefinitionsController',
+        controllerAs: 'vm',
+        resolve: {
+          votedefinitionResolve: getVotedefinition
+        },
+        data:{
+          pageTitle: 'Votedefinition {{ articleResolve.name }}'
+        }
       });
   }
 
