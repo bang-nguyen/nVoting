@@ -13,7 +13,7 @@
         <span data-ng-if="questiontype.user" data-ng-bind="questiontype.user.displayName"></span>
         <span data-ng-if="!questiontype.user">Deleted User</span>
       </small>
-      <h4 class="list-group-item-heading" data-ng-bind="questiontype.name"></h4>
+      <h4 class="list-group-item-heading" data-ng-bind="questiontype.type"></h4>
     </a>
   </div>
   <div class="alert alert-warning text-center" data-ng-if="vm.questiontypes.$resolved && !vm.questiontypes.length">

@@ -49,6 +49,7 @@ exports.update = function(req, res) {
 
   votedefinition = _.extend(votedefinition , req.body);
   votedefinition.lastModifiedBy = req.user;
+  votedefinition.lastModified = new Date();
   votedefinition.save(function(err) {
     if (err) {
       return res.status(400).send({

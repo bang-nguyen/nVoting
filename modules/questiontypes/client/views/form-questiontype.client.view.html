@@ -6,10 +6,10 @@
     <form name="vm.form.questiontypeForm" class="form-horizontal" ng-submit="vm.save(vm.form.questiontypeForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.questiontype.name" id="name" class="form-control" placeholder="Name" required>
+          <label class="control-label" for="Type">Question Type</label>
+          <input name="type" type="text" ng-model="vm.questiontype.type" id="Type" class="form-control" placeholder="Question Type" required>
           <div ng-messages="vm.form.questiontypeForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Questiontype name is required.</p>
+            <p class="help-block error-text" ng-message="required">Question Type is required.</p>
           </div>
         </div>
         <div class="form-group">
