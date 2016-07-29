@@ -9,7 +9,7 @@
     <p data-ng-bind="vm.votedefinition.description"></p>
   </div>
   <div class="page-content">
-    <p data-ng-bind="vm.votedefinition.deadline"></p>
+    <p data-ng-bind="vm.votedefinition.deadline | date:'mediumDate'"></p>
   </div>
   <div class="pull-right" data-ng-show="vm.votedefinition.isCurrentUserOwner">
     <a class="btn btn-primary" data-ui-sref="votedefinitions.edit({ votedefinitionId: vm.votedefinition._id })">

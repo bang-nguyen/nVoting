@@ -27,7 +27,7 @@
         <div class="form-group" show-errors>
           <label class="control-label" for="DeadLine">Dead Line</label>
           <div>
-            <span data-ng-model="vm.votedefinition.deadline">{{vm.votedefinition.deadline}}</span>
+            <span data-ng-model="vm.votedefinition.deadline">{{vm.votedefinition.deadline | date:'mediumDate'}}</span>
           </div>
           <div class="well ng-binding">
             <datetimepicker data-datetimepicker-config="{ startView:'day', minView:'day' }" name="deadline" data-ng-model="vm.votedefinition.deadline"></datetimepicker>
